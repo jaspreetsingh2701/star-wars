@@ -1,0 +1,9 @@
+input, button {
+    border: none;
+    outline: 0;
+}
+
+button:disabled {
+    background: grey;
+    opacity: 0.3;
+}

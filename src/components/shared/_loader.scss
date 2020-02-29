@@ -1,0 +1,29 @@
+.loader {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    background-color: rgba(255, 255, 255, 0.22);
+    overflow-x: hidden;
+    transition: 0.5s;
+    &__content {
+        position: absolute;
+        top: 30%;
+        left: 0px;
+        right: 0px;
+        margin: auto;
+        width: 225px;
+        text-align: center;
+        background: #000000bf;
+        border: 3px solid #80808073;
+        padding: 1.2em;
+        img {
+            height: 190px;
+        }
+    }
+    &--text {
+        color: #afafaf;
+    }
+}

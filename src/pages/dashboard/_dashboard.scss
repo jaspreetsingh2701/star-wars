@@ -1,0 +1,109 @@
+@import './../../styles/flex';
+
+.dashboard {
+    @extend %f-c;
+    flex: 1;
+    height: 100%;
+    background: #ffffff30;
+    color: white;
+    margin: 1em;
+    border-radius: 3px;
+    padding: 1em;
+    &__header {
+        @extend %f-r;
+        justify-content: space-between;
+        align-items: center;
+        img {
+            cursor: pointer;
+            height: 25px;
+            transform: rotate(180deg);
+        }
+    }
+}
+
+.planets {
+    @extend %f-r;
+    flex-wrap: wrap;
+    &__planet {
+        @extend %f-c;
+        align-items: center;
+        margin: 18px;
+        &--item {
+            background: #BBD2C5;
+            background: -webkit-linear-gradient(to right, #536976, #BBD2C5);
+            background: linear-gradient(to right, #536976, #BBD2C5);
+            border-radius: 100%;
+            transition: width 2s, height 2s;
+            &:hover {
+                cursor: pointer;
+                animation: shake 0.5s;
+                animation-iteration-count: infinite;
+            }
+        }
+    }
+}
+
+.planet__content {
+    margin-top: 20%;
+    text-align: center;
+    animation: fadein 6s;
+    -moz-animation: fadein 6s; 
+    -webkit-animation: fadein 6s;
+    -o-animation: fadein 6s;
+    &--label {
+        font-size: 12px;
+        margin-bottom: 8px;
+        color: #272727;
+        span {
+            font-weight: 600;
+            color: black;
+        }
+    }
+}
+
+@keyframes shake {
+    0% { transform: translate(1px, 1px) rotate(0deg); }
+    10% { transform: translate(-1px, -2px) rotate(-1deg); }
+    20% { transform: translate(-3px, 0px) rotate(1deg); }
+    30% { transform: translate(3px, 2px) rotate(0deg); }
+    40% { transform: translate(1px, -1px) rotate(1deg); }
+    50% { transform: translate(-1px, 2px) rotate(-1deg); }
+    60% { transform: translate(-3px, 1px) rotate(0deg); }
+    70% { transform: translate(3px, 1px) rotate(-1deg); }
+    80% { transform: translate(-1px, -1px) rotate(1deg); }
+    90% { transform: translate(1px, 2px) rotate(0deg); }
+    100% { transform: translate(1px, -2px) rotate(-1deg); }
+  }
+
+  @keyframes fadein {
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+}
+@-moz-keyframes fadein {
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+}
+@-webkit-keyframes fadein {
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+}
+@-o-keyframes fadein {
+    from {
+        opacity:0;
+    }
+    to {
+        opacity: 1;
+    }
+}

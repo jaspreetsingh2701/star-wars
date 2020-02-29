@@ -1,0 +1,71 @@
+@import './variables';
+
+@font-face {
+    font-family: verdana;
+    src: url('./../assets/Verdana.ttf');
+}
+
+html {
+    flex: 1;
+    height: 100%;
+}
+
+body {
+    font-family: verdana;
+    margin: 0;
+    padding: 0;
+    flex: 1;
+    height: 100%;
+    background: $black;
+}
+
+#root {
+    flex: 1;
+    height: 100%;
+}
+
+#stars {
+    position:absolute;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    width:100%;
+    height:100%;
+    display:block;
+    background:#000 url(http://www.script-tutorials.com/demos/360/images/stars.png) repeat top center;
+    z-index:0;
+}
+
+.sw-input {
+    &--primary {
+        background: #ffffff30;
+        color: $white;
+    }
+    &--md {
+        padding: 12px 14px;
+        font-size: 14px;
+    }
+}
+
+.sw-button {
+    &--primary {
+        background: black;
+        color: white;
+        border: 1.5px solid #303030;
+    }
+    &--md {
+        padding: 12px 14px;
+        font-size: 14px;
+    }
+}
+
+.sw-error {
+    &--msg {
+        color: #f16565;
+        font-size: 10px;
+        margin: 4px 0;
+        text-transform: uppercase;
+        min-height: 12px;
+    }
+}

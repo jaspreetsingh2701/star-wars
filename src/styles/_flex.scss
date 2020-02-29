@@ -1,0 +1,21 @@
+%f {
+    display: flex;
+}
+
+%r {
+    flex-direction: row;
+}
+
+%c {
+    flex-direction: column;
+}
+
+%f-r {
+    display: flex;
+    flex-direction: row;
+}
+
+%f-c {
+    display: flex;
+    flex-direction: column;
+}
