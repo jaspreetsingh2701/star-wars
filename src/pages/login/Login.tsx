@@ -3,8 +3,9 @@ import logo from "./../../assets/sw_logo.png";
 import { validateUserAndLogin } from '../../api/login';
 import { useHistory } from "react-router-dom";
 import { setItem } from '../../utils/service';
-import "./_login.scss";
 import Loader from "../../components/shared/loader";
+import { IUsers, IUser, LSObj } from "./types";
+import "./_login.scss";
 
 function Login() {
   const history = useHistory();
@@ -14,7 +15,7 @@ function Login() {
   const [errorMessage, setErrorMessage] = useState('');
   const [isLoading, setLoader] = useState(false);
 
-  const loginRequest = (event: any) => {
+  const loginRequest = (event: React.FormEvent) => {
     event.preventDefault();
     if (!username || !password) {
       setErrorMessage('please enter valid details!');
@@ -27,13 +28,20 @@ function Login() {
 
   const validateUser = (username: string, password: string) => {
     setLoader(true);
-    validateUserAndLogin(username, password).then(results => {
-      let users = [];
+    validateUserAndLogin(username, password).then((results: IUsers) => {
+      console.log(results);
+      let users: IUser[] = [];
       if (results.count > 0) {
         users = results.results;
-        users.forEach((user: any) => {
+        users.forEach((user: IUser) => {
           if (user.name === username && user.birth_year === password) {
-            setItem('user', true);
+            const userObj: LSObj = {
+              name: user.name
+            };
+            if (user.name === 'Luke Skywalker') {
+              userObj['admin'] = true;
+            }
+            setItem('user', userObj);
             setLoader(false);
             history.push('/');
           }
@@ -61,6 +69,7 @@ function Login() {
           <input
             placeholder="username"
             type="text"
+            autoComplete="off"
             className="sw-input--primary sw-input--md"
             value={username}
             onChange={(event) => {
@@ -70,6 +79,7 @@ function Login() {
           <input
             placeholder="password"
             type="password"
+            autoComplete="off"
             className="sw-input--primary sw-input--md"
             value={password}
             onChange={(event) => {
