@@ -8,15 +8,14 @@ import Planet from "../../components/planet/planet";
 import Search from "../../components/search/search";
 import { BASE_URL } from "../../utils/constants";
 import { IPlanet } from './types';
-import './_dashboard.scss';
 import { getItem } from './../../utils/service';
+import './_dashboard.scss';
 
 function Dashboard() {
   const history = useHistory();
 
   let timerRef: any;
   const [planets, setPlanets] = useState<any[]>([]);
-  // const [maximum, setMaximum] = useState(0);
   const [total, setTotal] = useState(0);
   const [searchInput, setSearchInput] = useState('');
   const [selectedPlanet, selectPlanet] = useState('');
@@ -53,7 +52,7 @@ function Dashboard() {
   }
 
   const handleSearchInput = (event: any) => {
-    const value = event?.target.value;
+    const value = event.target.value;
     const user = getItem('user');
     setSearchInput(value);
     if (!timer) {
@@ -101,13 +100,9 @@ function Dashboard() {
     setTotal(total);
     setPlanets(filteredRes);
     setLoader(false);
-    // let maxValue = filteredRes.reduce((prev: any, current: any) => (prev.population > current.population) ? prev : current);
-    // console.log('max value', maxValue);
-    // console.log('total value', total);
   };
 
   const showPlanetInfo = (event: any, name: string) => {
-    // let currentNode = event?.currentTarget;
     selectPlanet(name);
   };
   return (
